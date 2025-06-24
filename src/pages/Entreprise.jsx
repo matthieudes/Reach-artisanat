@@ -31,12 +31,17 @@ const entreprisesData = [
   },
 ];
 async function fetchEntreprisesAPI(query) {
-    const url = `https://recherche-entreprises.api.gouv.fr/search?q=${encodeURIComponent(query)}&limite_matching_etablissements=10&minimal=true&include=siege%2Ccomplements&page=1&per_page=10`;
-    const response = await fetch(url);
-    if (!response.ok) throw new Error("Erreur API");
-    const data = await response.json();
-    return data.results;
-  }
+  const url = `https://recherche-entreprises.api.gouv.fr/search?q=${encodeURIComponent(query)}&limite_matching_etablissements=10&minimal=true&include=siege%2Ccomplements&page=1&per_page=10`;
+  const response = await fetch(url);
+  if (!response.ok) throw new Error("Erreur API");
+  const data = await response.json();
+  return data.results;
+}
+
+function getNafCode(code){
+  const codeSansPoint = code.replace(/\./g, "");
+  return nafCodes[codeSansPoint] || code;
+}
   
 export default function Entreprise() {
   const [search, setSearch] = useState("");
@@ -113,7 +118,7 @@ export default function Entreprise() {
                 onClick={() => setSelected({
                   id: e.siren,
                   name: e.nom_raison_sociale || e.nom_complet,
-                  secteur: e.activite_principale,
+                  secteur: getNafCode(e.activite_principale),
                   ville: e.siege.libelle_commune,
                   adresse: e.siege.adresse,
                   categorie_entreprise: e.categorie_entreprise ,
@@ -122,7 +127,7 @@ export default function Entreprise() {
                 })}
               >
                 <h2>{e.nom_raison_sociale || e.nom_complet}</h2>
-                <div className="entreprise-secteur">{e.activite_principale}</div>
+                <div className="entreprise-secteur">{getNafCode(e.activite_principale)}</div>
                 <div className="entreprise-ville">{e.siege.libelle_commune}</div>
               </div>
             ))
