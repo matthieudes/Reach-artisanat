@@ -1,0 +1,128 @@
+
+.close-btn {
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background: transparent;
+    border:none;
+    font-size: 3rem;
+    color: #3498db;
+    cursor: pointer;
+    z-index: 2;
+    transition: color 0.2s;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: #e74c3c;
+    outline: none;
+}
+
+.form-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    max-width: 370px;
+    margin: 80px auto 0 auto;
+    padding: 32px 28px 28px 28px;
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 4px 24px rgba(52, 152, 219, 0.10);
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    align-items: stretch;
+}
+
+.form-container h1 {
+    text-align: center;
+    font-size: 2rem;
+    color: #222;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.form-container input {
+    padding: 12px 14px;
+    border: 1.5px solid #d1d5db;
+    border-radius: 7px;
+    font-size: 1rem;
+    outline: none;
+    transition: border 0.2s;
+    background: #f9f9f9;
+}
+
+.form-container input:focus {
+    border: 1.5px solid #3498db;
+    background: #fff;
+}
+
+.form-container button[type="submit"] {
+    background: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 7px;
+    padding: 12px 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 8px;
+    transition: background 0.2s;
+}
+
+.form-container button[type="submit"]:hover,
+.form-container button[type="submit"]:focus {
+    background: #217dbb;
+}
+
+.form-container button[type="button"] {
+    background: #fff;
+    color: #3498db;
+    border: 1.5px solid #3498db;
+    border-radius: 7px;
+    padding: 12px 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 0;
+    transition: background 0.2s, color 0.2s;
+}
+
+.form-container button[type="button"]:hover,
+.form-container button[type="button"]:focus {
+    background: #3498db;
+    color: #fff;
+}
+
+.form-container a {
+    color: #3498db;
+    text-align: center;
+    text-decoration: underline;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 6px;
+    transition: color 0.2s;
+    display: block;
+}
+
+.form-container a:hover,
+.form-container a:focus {
+    color: #217dbb;
+}
+
+.form-container div {
+    color: #e74c3c;
+    font-size: 1rem;
+    text-align: center;
+    margin-top: 4px;
+}
+
+@media (max-width: 600px) {
+    .form-container {
+        max-width: 98vw;
+        padding: 18px 6vw;
+        margin-top: 32px;
+    }
+}
