@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "../pagesStyle/Entreprise.css";
-
+import { nafCodes } from "../assets/codeNAF";
 const entreprisesData = [
   {
     id: 1,
