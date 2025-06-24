@@ -396,6 +396,7 @@ export const nafCodes = {
   "5020Z": "Transports maritimes et côtiers de fret",
   "5030Z": "Transports fluviaux de passagers",
   "5040Z": "Transports fluviaux de fret",
+  "5130" : "Laboratoires cinématographiques",
   "5110Z": "Transports aériens de passagers",
   "5121Z": "Transports aériens de fret",
   "5122Z": "Transports spatiaux",

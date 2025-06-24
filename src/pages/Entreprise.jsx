@@ -111,7 +111,13 @@ export default function Entreprise() {
         {loading && <div>Chargement...</div>}
         {error && <div style={{color: "red"}}>{error}</div>}
         {apiResults.length > 0
-          ? apiResults.map(e => (
+          ? apiResults
+              .filter(e => {
+                if (filter === "all") return true;
+                const naf = getNafCode(e.activite_principale);
+                return secteurToNaf[filter]?.includes(naf);
+              })
+            .map(e => (
               <div
                 className="entreprise-card"
                 key={e.siren}
